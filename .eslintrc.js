@@ -94,7 +94,7 @@ module.exports = {
     "react-native/no-raw-text": [
       "error",
       {
-        skip: ["TextInput"],
+        skip: ["TextInput", "ThemedText"],
       },
     ],
     "@typescript-eslint/naming-convention": [
