@@ -4,6 +4,43 @@ import { NewsBubble } from "@/components/NewsBubble";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { ThemedText } from "@/components/ThemedText";
 
+const mockNewsData: Array<{
+  id: number;
+  date: string;
+  text: string;
+  poster: string;
+  image: string | undefined;
+}> = [
+  {
+    id: 0,
+    date: "01.08.2024",
+    text: "Danas nema treninga, zbog radova na bazenu",
+    poster: "Jocke",
+    image: undefined,
+  },
+  {
+    id: 1,
+    date: "01.08.2024",
+    text: "Danas nema treninga, Somi je slucajno dosao.",
+    poster: "Somi",
+    image: undefined,
+  },
+  {
+    id: 2,
+    date: "01.08.2024",
+    text: "Danas nema treninga, hemicarka Goca je ubacila lose hemikalije u bazen",
+    poster: "Irena",
+    image: undefined,
+  },
+  {
+    id: 3,
+    date: "01.08.2024",
+    text: "Danas nema treninga, Irena je ljuta.",
+    poster: "Irena",
+    image: undefined,
+  },
+];
+
 export default function HomeScreen(): JSX.Element {
   return (
     <ParallaxScrollView
@@ -20,7 +57,17 @@ export default function HomeScreen(): JSX.Element {
         />
       }
     >
-      <NewsBubble />
+      {mockNewsData.map((item) => {
+        return (
+          <NewsBubble
+            key={item.id}
+            date={item.date}
+            poster={item.poster}
+            text={item.text}
+            image={item.image}
+          />
+        );
+      })}
     </ParallaxScrollView>
   );
 }

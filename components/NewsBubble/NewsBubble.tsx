@@ -8,18 +8,26 @@ import { ProfileImagePlaceholder } from "@/components/SVGElements";
 import { ThemedText } from "@/components/ThemedText";
 import { Colors } from "@/constants/Colors";
 
-export const NewsBubble = (): JSX.Element => {
+export const NewsBubble = ({
+  date,
+  poster,
+  text,
+  image,
+}: {
+  date: string;
+  poster: string;
+  text: string;
+  image: string | undefined;
+}): JSX.Element => {
   return (
     <View style={styles.container}>
-      <ThemedText>01.08.2024.</ThemedText>
+      <ThemedText>{date}</ThemedText>
       <View style={styles.newsPosterContainer}>
-        <ThemedText>Jocke</ThemedText>
-        <ProfileImagePlaceholder />
+        <ThemedText>{poster}</ThemedText>
+        {image ? null : <ProfileImagePlaceholder />}
       </View>
 
-      <ThemedText style={styles.newsBubbleText}>
-        Danas nema treninga, zbog radova na bazenu
-      </ThemedText>
+      <ThemedText style={styles.newsBubbleText}>{text}</ThemedText>
     </View>
   );
 };
